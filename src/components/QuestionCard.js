@@ -10,7 +10,7 @@ const QuestionCard = ({userAvatar, question}) => {
             <Grid container>
                 <Grid item xs={12}>
                     <Typography variant='overline' gutterBottom>
-                        Eman asks:
+                        {question.author} asks:
                     </Typography>
                 </Grid>
                 <Grid item xs={5}>
