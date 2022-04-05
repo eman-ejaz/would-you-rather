@@ -1,0 +1,1 @@
+export const EMPTY_FIELD_ERROR_TEXT = 'Options cannot be empty!'
