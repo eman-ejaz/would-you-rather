@@ -1,0 +1,21 @@
+.question-option {
+    min-width: 120px;
+    width: 25%;
+
+    border-radius: 3px;
+    padding: 10px;
+    justify-content: center;
+
+    cursor: pointer;
+
+    display: flex;
+    border: 1px solid #DAD7D7;
+    margin: 0 auto 20px;
+
+
+}
+
+.question-option:hover {
+    color: green;
+    border: 1px solid #00897B;
+}
