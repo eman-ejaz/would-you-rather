@@ -24,7 +24,7 @@ const CreateQuestion = () => {
   );
 
   if (!loggedIn) {
-    return <Redirect to={ROUTE_URLS.LOGIN} />;
+    return <Redirect to={{pathname: ROUTE_URLS.LOGIN, state: {route: ROUTE_URLS.ADD}}} />;
   }
   if (questionSaved) {
     return <Redirect to={ROUTE_URLS.HOME} />;

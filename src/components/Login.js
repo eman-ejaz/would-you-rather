@@ -17,7 +17,8 @@ import { AuthUserActionCreators } from '../actions/index';
 import { ROUTE_URLS } from '../constants/routes';
 import {Redirect} from 'react-router-dom';
 
-const Login = () => {
+
+const Login = (props) => {
     const dispatch = useDispatch();
     const users = useSelector((state) => state.usersReducer);
 
@@ -34,11 +35,17 @@ const Login = () => {
 
     const handleSetAuthedUser = (event) => {
         setAuthedUser(event.target.value);
-
     };
 
+    let routeTo = ROUTE_URLS.HOME
+
+    if (props.history.location.state.route) {
+        routeTo = props.history.location.state.route;
+    }
+
+
     if(logIn)
-        return <Redirect to={ROUTE_URLS.HOME} />
+        return <Redirect to={routeTo} />
 
     return (
         <Grid container sx={{ mt: 30 }}>
@@ -50,7 +57,6 @@ const Login = () => {
                     onSubmit={() => {
                         setAuthUser(authedUser);
                         setLogIn(true)
-                        // navigate(ROUTE_URLS.HOME);
                     }}
                     initialValues={{
                         userId: '',

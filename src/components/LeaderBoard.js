@@ -14,7 +14,7 @@ const LeaderBoard = () => {
     const loggedIn = authedUser !== null;
 
     if (!loggedIn) {
-        return <Redirect to={ROUTE_URLS.LOGIN}/>;
+        return <Redirect to={{pathname: ROUTE_URLS.LOGIN, state: {route: ROUTE_URLS.LEADER_BOARD}}}/>;
     }
     return (
         <>
