@@ -39,7 +39,7 @@ const Login = (props) => {
 
     let routeTo = ROUTE_URLS.HOME
 
-    if (props.history.location.state.route) {
+    if (props.history.location.state) {
         routeTo = props.history.location.state.route;
     }
 
