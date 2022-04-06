@@ -3,7 +3,7 @@ import {ROUTE_URLS} from './constants/routes';
 import {Route, Switch} from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Question from "./components/Question";
+import Question from "./components/QuestionContainer";
 import CreateQuestion from "./components/CreateQuestion";
 import LeaderBoard from "./components/LeaderBoard";
 import Error from "./components/404";

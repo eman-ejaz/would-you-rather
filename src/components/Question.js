@@ -1,51 +1,30 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {ROUTE_URLS} from '../constants/routes';
-
-import {generateQuestionStats, getQuestionData} from '../utils/utils';
 import Navbar from './Navbar';
 import {Grid, Typography} from '@mui/material';
 
 import '../styles/question.css';
 import QuestionOption from './QuestionOption';
-import {bindActionCreators} from 'redux';
-import {sharedActionCreators} from '../actions';
 
 const Question = (props) => {
-    const {authedUser} = useSelector((state) => state.authedReducer);
-    const questions = useSelector((state) => state.questionsReducer.questions);
-    const users = useSelector((state) => state.usersReducer.users);
-
-    const dispatch = useDispatch();
-
-    const {handleSaveAnswer} = bindActionCreators(
-        sharedActionCreators,
-        dispatch
-    );
-
-    const loggedIn = authedUser !== null;
-
-
-    const questionId = props.match.params.id;
-    const questionOpened = questions[questionId];
-
-    const questionData = getQuestionData(
-        questionOpened,
-        questions,
-        users,
-        authedUser
-    );
-    const {optionOnePercentage, optionTwoPercentage, totalVotes} =
-        generateQuestionStats(questionData);
-
-    const handleAnswer = (selectedOption) => {
-        handleSaveAnswer(authedUser, questionId, selectedOption);
-    };
-    if (!loggedIn) {
+    if (props.questionData.loggedIn) {
         return <Redirect
-            to={{pathname: ROUTE_URLS.LOGIN, state: {route: `${ROUTE_URLS.QUESTIONS}:${questionOpened.id}`}}}/>;
+            to={{pathname: ROUTE_URLS.LOGIN, state: {route: `${ROUTE_URLS.QUESTIONS}${props.questionData.qid}`}}}/>;
     }
+
+
+    if (props.questionData.questionInfo === null) {
+        return (
+            <div className='question-page'>
+                <Navbar/>
+                <p>This question does not exist!</p>
+            </div>
+        );
+    }
+    const handleAnswer = (selectedOption) => {
+        props.handleSaveAnswer(props.authedUser, props.questionData.qid, selectedOption);
+    };
 
 
     return (
@@ -54,26 +33,26 @@ const Question = (props) => {
             <Typography variant='h2' gutterBottom color={'green'}>
                 Would you rather?
             </Typography>
-            {questionData.answered ? (
+            {props.questionData.questionInfo.answered ? (
                 <Grid container justifyContent='center' alignContent='center'>
                     <Grid item xs={12}>
                         <QuestionOption
-                            questionData={questionData}
-                            optionText={questionData.optionOne}
-                            optionPercentage={optionOnePercentage}
-                            totalVotes={totalVotes}
-                            scoredVotes={questionData.optionOneVotes.length}
-                            toMark={questionData.userAnswer === 'optionOne'}
+                            questionData={props.questionData.questionInfo}
+                            optionText={props.questionData.questionInfo.optionOne}
+                            optionPercentage={props.optionOnePercentage}
+                            totalVotes={props.totalVotes}
+                            scoredVotes={props.questionData.questionInfo.optionOneVotes.length}
+                            toMark={props.questionData.questionInfo.userAnswer === 'optionOne'}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <QuestionOption
-                            questionData={questionData}
-                            optionText={questionData.optionTwo}
-                            optionPercentage={optionTwoPercentage}
-                            totalVotes={totalVotes}
-                            scoredVotes={questionData.optionTwoVotes.length}
-                            toMark={questionData.userAnswer === 'optionTwo'}
+                            questionData={props.questionData.questionInfo}
+                            optionText={props.questionData.questionInfo.optionTwo}
+                            optionPercentage={props.optionTwoPercentage}
+                            totalVotes={props.totalVotes}
+                            scoredVotes={props.questionData.questionInfo.optionTwoVotes.length}
+                            toMark={props.questionData.questionInfo.userAnswer === 'optionTwo'}
                         />
                     </Grid>
                 </Grid>
@@ -83,13 +62,13 @@ const Question = (props) => {
                         className='question-option'
                         onClick={() => handleAnswer('optionOne')}
                     >
-                        {questionData.optionOne}?
+                        {props.questionData.questionInfo.optionOne}?
                     </div>
                     <div
                         className='question-option'
                         onClick={() => handleAnswer('optionTwo')}
                     >
-                        {questionData.optionTwo}?
+                        {props.questionData.questionInfo.optionTwo}?
                     </div>
                 </div>
             )}
