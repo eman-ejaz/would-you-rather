@@ -50,7 +50,7 @@ const CreateQuestion = () => {
         Create a new Question
       </Typography>
       <Typography variant='button' gutterBottom component='block'>
-        Create a new Question
+        Would You Rather
       </Typography>
       <Formik
         initialValues={{
