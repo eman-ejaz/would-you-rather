@@ -42,10 +42,11 @@ const LeaderBoard = () => {
                                 <TableCell>
                                     <img
                                         style={{
-                                            height: '50px',
-                                            width: '50px',
+                                            height: '40px',
+
                                             borderRadius: '50%',
-                                            verticalAlign: 'middle'
+                                            verticalAlign: 'middle',
+                                            width: '40px',
                                         }}
                                         alt='avatar'
                                         src={row.avatarURL}

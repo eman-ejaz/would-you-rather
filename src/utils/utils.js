@@ -2,6 +2,7 @@ import { Redirect } from 'react-router-dom';
 import { ROUTE_URLS } from '../constants/routes';
 
 export const getUserAnswersData = (questions, users, authUser) => {
+  // Gets all the questions and then separates them to answered and unanswered ofr the authed User.
   const answeredQuestionsIds = Object.keys(users[authUser].answers);
   const answeredQuestions = Object.values(questions).filter((question) =>
     answeredQuestionsIds.includes(question.id)
@@ -18,6 +19,7 @@ export const getUserAnswersData = (questions, users, authUser) => {
   return { answered: sortedAnswers, unanswered: sortedUnAnsweredQuestions };
 };
 
+// Generates the data needed for the Question Component
 export const getQuestionData = (
   questionOpened,
   questions,
@@ -54,10 +56,12 @@ export const getQuestionData = (
   return questionData;
 };
 
+// Generates the percentage for each option of a question.
 const generateOptionPercentage = (scoredVotes, totalVotes) => {
   return (scoredVotes / totalVotes) * 100;
 };
 
+// Return the stats for a question (total votes, optionOne votes,..)
 export const generateQuestionStats = (questionData) => {
   const totalVotes =
     questionData.optionOneVotes.length + questionData.optionTwoVotes.length;
@@ -79,6 +83,7 @@ export const checkLoggedIn = () => {
   return <Redirect to={ROUTE_URLS.LOGIN} />;
 };
 
+// Generates and return the calculated data for leader board.
 export const createLeaderBoardData = (users) => {
   const usersData = Object.keys(users).map(user => {
     const author = users[user]
