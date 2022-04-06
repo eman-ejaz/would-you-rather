@@ -30,6 +30,7 @@ const Question = (props) => {
     return (
         <div>
             <Navbar/>
+            <img className='big-avatar' alt='big avatar' src={props.userAvatar}/>
             <Typography variant='h2' gutterBottom color={'green'}>
                 Would you rather?
             </Typography>

@@ -40,6 +40,7 @@ const QuestionContainer = props => {
         <Question {...props} questionData={qData} optionOnePercentage={optionOnePercentage}
                   optionTwoPercentage={optionTwoPercentage}
                   totalVotes={totalVotes} authedUser={authedUser}
+                  userAvatar={users && questions && question ? users[question.author].avatarURL : ''}
                   handleSaveAnswer={(authedUser, questionId, userAnswer) => handleSaveAnswer(authedUser, questionId, userAnswer)}
         />
     )
