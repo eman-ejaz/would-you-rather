@@ -6,7 +6,7 @@ The project aims to use all the knowledge we have covered in the nanodegree so f
 
 Using the skill we have established throughout the program we are to develop a game named "Would You Rather?"
 
-The game inclueds: A user is asked a question in the form: “Would you rather [option One] or [option Two] ?”. You can't mark both the options neither can you leave it unmarked. In the app the user would be able to see all the answers he/she has marked and all the unanswered questions as well in their separate respective tab panels.
+The game includes: A user is asked a question in the form: “Would you rather [option One] or [option Two] ?”. You can't mark both the options neither can you leave it unmarked. In the app the user would be able to see all the answers he/she has marked and all the unanswered questions as well in their separate respective tab panels.
 
 ## TL;DR
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,19 +28,21 @@ With the backend being only pseudo, the data is not persistent on refresh.
 ## Preview
 
 1. **Login**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/Login.png" />
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.21.10%20PM.png" />
 
 2. **Home**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/Home.png" />
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.21.27%20PM.png" />
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.21.39%20PM.png" />
+
 
 3. **Question**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/Question.png" />
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.21.51%20PM.png" />
 
-4. **Answer**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/Answer.png" />
+4. **Question Answer**
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.22.11%20PM.png" />
 
-5. **New Question**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/New%20Question.png" />
+5. **Create New Question**
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.22.22%20PM.png" />
 
 6. **Leaderboard**
-<img src="https://github.com/Shrreya/Would-You-Rather/blob/master/screenshots/Leaderboard.png" />
+   <img src="https://github.com/eman-ejaz/would-you-rather/blob/master/screenshots/Screenshot%202022-04-06%20at%202.22.33%20PM.png" />
