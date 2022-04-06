@@ -14,7 +14,7 @@ const LeaderBoard = () => {
     const loggedIn = authedUser !== null;
 
     if (!loggedIn) {
-        return <Redirect to={{pathname: ROUTE_URLS.LOGIN, state: {route:ROUTE_URLS.LEADER_BOARD}}} />;
+        return <Redirect to={{pathname: ROUTE_URLS.LOGIN, state: {route: ROUTE_URLS.LEADER_BOARD}}}/>;
     }
     return (
         <>
@@ -26,6 +26,7 @@ const LeaderBoard = () => {
                 <Table sx={{minWidth: 650}} aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell>Avatar</TableCell>
                             <TableCell>User</TableCell>
                             <TableCell align="right">Questions</TableCell>
                             <TableCell align="right">Answers</TableCell>
@@ -38,6 +39,19 @@ const LeaderBoard = () => {
                                 key={row.name}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
+                                <TableCell>
+                                    <img
+                                        style={{
+                                            height: '50px',
+                                            width: '50px',
+                                            borderRadius: '50%',
+                                            verticalAlign: 'middle'
+                                        }}
+                                        alt='avatar'
+                                        src={row.avatarURL}
+                                        className='small-avatar'
+                                    />
+                                </TableCell>
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
